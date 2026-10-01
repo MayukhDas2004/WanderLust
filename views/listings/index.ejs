@@ -1,0 +1,90 @@
+<% layout("/layouts/boilerplate") -%>
+
+    
+    <!-- <h3>All Listing</h3> -->
+    <!-- <form method="GET" action="/listings/new">
+        <button>Create New Listning</button>
+    </form> -->
+
+
+        
+        <div class="filters-wrapper">
+            <div id="filters">
+        
+                <a href="/listings" class="filter">
+                    <i class="fa-solid fa-compass"></i>
+                    <span>All</span>
+                </a>
+        
+                <a href="/listings?category=Trending" class="filter">
+                    <i class="fa-solid fa-fire"></i>
+                    <span>Trending</span>
+                </a>
+        
+                <a href="/listings?category=Rooms" class="filter">
+                    <i class="fa-solid fa-bed"></i>
+                    <span>Rooms</span>
+                </a>
+        
+                <a href="/listings?category=Iconic%20Cities" class="filter">
+                    <i class="fa-solid fa-mountain-city"></i>
+                    <span>Iconic Cities</span>
+                </a>
+        
+                <a href="/listings?category=Mountains" class="filter">
+                    <i class="fa-solid fa-mountain"></i>
+                    <span>Mountains</span>
+                </a>
+        
+                <a href="/listings?category=Castles" class="filter">
+                    <i class="fa-brands fa-fort-awesome"></i>
+                    <span>Castles</span>
+                </a>
+        
+                <a href="/listings?category=Amazing%20Pools" class="filter">
+                    <i class="fa-solid fa-person-swimming"></i>
+                    <span>Amazing Pools</span>
+                </a>
+        
+                <a href="/listings?category=Camping" class="filter">
+                    <i class="fa-solid fa-campground"></i>
+                    <span>Camping</span>
+                </a>
+        
+                <a href="/listings?category=Farms" class="filter">
+                    <i class="fa-solid fa-cow"></i>
+                    <span>Farms</span>
+                </a>
+        
+                <a href="/listings?category=Arctic" class="filter">
+                    <i class="fa-regular fa-snowflake"></i>
+                    <span>Arctic</span>
+                </a>
+        
+            </div>
+        </div>
+
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+        <% for(let listing of allListings) { %>
+            <a href="/listings/<%= listing._id %>" class="listing-ink">
+                <div class="card col listing-card" style="width: 20rem;">
+                    <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem;">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b><%= listing.title %></b>
+                            <br>&#8377;<%= listing.price != null ? listing.price.toLocaleString("en-IN") : "N/A" %>
+                        </p>
+                    </div>
+                </div>
+            </a>
+            
+        <% } %>
+    </div>
+    <!-- <ul>
+        <% for(let listing of allListings) { %>
+        <li><a href="/listings/<%= listing._id %>"> <%= listing.title %> </a></li>
+        <% }%>
+    </ul> -->
+
